@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -111,7 +111,7 @@ const Experience = () => {
             {timeline.map((item, i) => (
               <div
                 key={i}
-                ref={(el) => (itemsRef.current[i] = el)}
+                ref={(el) => { itemsRef.current[i] = el; }}
                 className={`flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
               >
                 <div className={`w-5/12 ${i % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>

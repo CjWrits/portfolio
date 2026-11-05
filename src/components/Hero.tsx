@@ -8,8 +8,8 @@ import BlinkingAsciiDots from './BlinkingAsciiDots';
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  const containerRef = useRef(null);
-  const textRef = useRef(null);
+  const containerRef = useRef<HTMLElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const chars = textRef.current?.querySelectorAll('.char');

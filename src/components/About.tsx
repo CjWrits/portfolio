@@ -6,11 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const lineRef = useRef(null);
+  const lineRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const textRef = useRef(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (lineRef.current) {
@@ -84,7 +84,7 @@ const About = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                ref={(el) => (statsRef.current[i] = el)}
+                ref={(el) => { statsRef.current[i] = el; }}
                 className="relative group transition-all duration-300"
               >
                 <div className="relative flex justify-between items-center border-b-2 border-gray-800 group-hover:border-orange-500 pb-6 transition-all">

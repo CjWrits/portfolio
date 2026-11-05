@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Skills = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -62,7 +62,7 @@ const Skills = () => {
           {skills.map((skill, i) => (
             <div
               key={skill.name}
-              ref={(el) => (skillsRef.current[i] = el)}
+              ref={(el) => { skillsRef.current[i] = el; }}
               className="group"
             >
               <div className="flex items-center gap-8 py-6 border-b border-gray-800 hover:border-orange-500 transition-all">
